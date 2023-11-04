@@ -4,7 +4,7 @@ const haveAccLink = 'div.container.page a[ui-sref="app.login"]';
 
 class RegistrationPage extends Page {
   openRegistrationUrl() {
-    this.openUrl("register");
+    this.openUrl("#/register");
   }
 
   clickHaveAccLink() {
