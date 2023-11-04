@@ -37,12 +37,13 @@ describe("Login Form", () => {
 
   it("Login with an invalid email", () => {
     loginPage.openLoginUrl();
-    loginPage.fillLoginForm(
-      testData.randomBadEmail + "@" + testData.randomBadEmail,
-      USER_PASSWORD
-    );
+    loginPage.fillLoginForm(testData.randomBadEmail, USER_PASSWORD);
     loginPage.checkLoginErrorMsg(systemMessages["invalid-email"]);
   });
 
-  
+  it("Login with an invalid password", () => {
+    loginPage.openLoginUrl();
+    loginPage.fillLoginForm(USER_EMAIL, testData.randomBadPassword);
+    loginPage.checkLoginErrorMsg(systemMessages["invalid-password"]);
+  });
 });
