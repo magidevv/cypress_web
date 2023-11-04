@@ -2,7 +2,7 @@
   "blank-login": "Login cannot be blank",
   "blank-email": "Email cannot be blank",
   "blank-password": "Password is too short (minimum is 8 characters)",
-  "invalid-username": "Username is invalid",
-  "invalid-email": "Email is invalid",
-  "invalid-password": "Password is too short (minimum is 8 characters)"
+  "invalid-username": "",
+  "invalid-email": "email or password is invalid",
+  "invalid-password": "email or password is invalid"
 }

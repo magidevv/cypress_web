@@ -2,6 +2,8 @@ const { MainPage } = require("../pages/main.page");
 const { LoginPage } = require("../pages/login.page");
 const { RegistrationPage } = require("../pages/registration.page");
 const { UserPage } = require("../pages/user.page");
+const testData = require("../fixtures/test-data.js");
+const systemMessages = require("../fixtures/system-messages.json");
 
 describe("Login Form", () => {
   const mainPage = new MainPage();
@@ -32,4 +34,15 @@ describe("Login Form", () => {
     cy.url().should("include", `${USER_LOGIN}`);
     userPage.checkProfileUsername(USER_LOGIN);
   });
+
+  it("Login with an invalid email", () => {
+    loginPage.openLoginUrl();
+    loginPage.fillLoginForm(
+      testData.randomBadEmail + "@" + testData.randomBadEmail,
+      USER_PASSWORD
+    );
+    loginPage.checkLoginErrorMsg(systemMessages["invalid-email"]);
+  });
+
+  
 });
