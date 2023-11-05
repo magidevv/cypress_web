@@ -28,6 +28,14 @@ class LoginPage extends Page {
       this.getElement(loginErrorMsgs).eq(index).should("contain.text", msg);
     });
   }
+
+    checkRedHighlightFields(fields) {
+      for (const field of fields) {
+      const selector = `input[type="${field}"]`;
+      const redHighlightField = this.getElement(selector);
+      redHighlightField.should('have.css', 'border-color', 'rgb(255, 0, 0)');
+    }
+  }
 }
 
 module.exports = { LoginPage };
