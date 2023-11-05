@@ -38,12 +38,17 @@ describe("Login Form", () => {
   it("Login with an invalid email", () => {
     loginPage.openLoginUrl();
     loginPage.fillLoginForm(testData.randomBadEmail, USER_PASSWORD);
-    loginPage.checkLoginErrorMsg(systemMessages["invalid-email"]);
+    loginPage.checkLoginErrorMsgs([systemMessages["invalid-email"]]);
   });
 
   it("Login with an invalid password", () => {
     loginPage.openLoginUrl();
     loginPage.fillLoginForm(USER_EMAIL, testData.randomBadPassword);
-    loginPage.checkLoginErrorMsg(systemMessages["invalid-password"]);
+    loginPage.checkLoginErrorMsgs([systemMessages["invalid-password"]]);
+  });
+
+  it("Login with empty required fields", () => {
+    loginPage.openLoginUrl();
+    loginPage.checkLoginErrorMsgs([systemMessages["blank-email"], systemMessages["blank-password"]]);
   });
 });

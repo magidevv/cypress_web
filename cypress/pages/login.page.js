@@ -4,7 +4,7 @@ const needAccLink = 'div.container.page a[ui-sref="app.register"]';
 const emailField = 'input[type="email"]';
 const passwordField = 'input[type="password"]';
 const submitBtn = 'button[type="submit"]';
-const loginErrorMsg = 'li[ng-repeat="error in errors"]';
+const loginErrorMsgs = 'ul.error-messages li';
 
 class LoginPage extends Page {
   openLoginUrl() {
@@ -21,8 +21,12 @@ class LoginPage extends Page {
     this.clickElement(submitBtn);
   }
 
-  checkLoginErrorMsg(msg) {
-    this.getElement(loginErrorMsg).should("contain.text", msg);
+  checkLoginErrorMsgs(errorMsgs) {
+    this.getElement(loginErrorMsgs).should("have.length", errorMsgs.length);
+
+    errorMsgs.forEach((msg, index) => {
+      this.getElement(loginErrorMsgs).eq(index).should("contain.text", msg);
+    });
   }
 }
 
