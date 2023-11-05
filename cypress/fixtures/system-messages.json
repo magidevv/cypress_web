@@ -1,5 +1,5 @@
 {
-  "blank-login": "username can't be blank",
+  "blank-username": "username can't be blank",
   "blank-email": "email can't be blank",
   "blank-password": "password can't be blank",
   "invalid-username": "username is invalid",
