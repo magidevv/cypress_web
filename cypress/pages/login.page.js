@@ -29,12 +29,16 @@ class LoginPage extends Page {
     });
   }
 
-    checkRedHighlightFields(fields) {
-      for (const field of fields) {
+  checkRedHighlightFields(fields) {
+    for (const field of fields) {
       const selector = `input[type="${field}"]`;
       const redHighlightField = this.getElement(selector);
-      redHighlightField.should('have.css', 'border-color', 'rgb(255, 0, 0)');
+      redHighlightField.should("have.css", "border-color", "rgb(255, 0, 0)");
     }
+  }
+
+  clickSubmitBtn() {
+    this.clickElement(submitBtn);
   }
 }
 

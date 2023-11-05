@@ -51,6 +51,7 @@ describe("Login Form", () => {
 
   it("Login with empty required fields", () => {
     loginPage.openLoginUrl();
+    loginPage.clickSubmitBtn();
     loginPage.checkLoginErrorMsgs([systemMessages["blank-email"], systemMessages["blank-password"]]);
     loginPage.checkRedHighlightFields(["email", "password"]);
   });
