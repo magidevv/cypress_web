@@ -69,4 +69,15 @@ describe("Login Form", () => {
     cy.url().should("include", `${USER_LOGIN}`);
     userPage.checkProfileUsername(USER_LOGIN);
   });
+
+  it("Registration with invalid credentials", () => {
+    registrationPage.openRegistrationUrl();
+    registrationPage.fillRegistrationForm(
+      testData.randomBadUsername,
+      testData.randomBadEmail,
+      testData.randomBadPassword
+    );
+    registrationPage.checkLoginErrorMsgs([systemMessages["invalid-username"], systemMessages["invalid-email"], systemMessages["invalid-password"]]);
+    registrationPage.checkRedHighlightFields(["text", "email", "password"]);
+  });
 });
