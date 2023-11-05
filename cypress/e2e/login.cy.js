@@ -80,4 +80,13 @@ describe("Login Form", () => {
     registrationPage.checkLoginErrorMsgs([systemMessages["invalid-username"], systemMessages["invalid-email"], systemMessages["invalid-password"]]);
     registrationPage.checkRedHighlightFields(["text", "email", "password"]);
   });
+
+  it("Registration with empty required fields", () => {
+    registrationPage.openRegistrationUrl();
+    registrationPage.clickSubmitBtn();
+    registrationPage.checkLoginErrorMsgs([
+      systemMessages["blank-username"], systemMessages["blank-email"], systemMessages["blank-password"]
+    ]);
+    registrationPage.checkRedHighlightFields(["text", "email", "password"]);
+  });
 });

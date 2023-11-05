@@ -38,6 +38,10 @@ class RegistrationPage extends Page {
       redHighlightField.should("have.css", "border-color", "rgb(255, 0, 0)");
     }
   }
+
+  clickSubmitBtn() {
+    this.clickElement(submitBtn);
+  }
 }
 
 module.exports = { RegistrationPage };
