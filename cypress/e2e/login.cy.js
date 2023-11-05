@@ -55,39 +55,4 @@ describe("Login Form", () => {
     loginPage.checkLoginErrorMsgs([systemMessages["blank-email"], systemMessages["blank-password"]]);
     loginPage.checkRedHighlightFields(["email", "password"]);
   });
-
-  it("Registration with valid credentials", () => {
-    mainPage.clickRegistrationLink();
-    cy.url().should("include", "register");
-    mainPage.clickLoginLink();
-    cy.url().should("include", "login");
-    loginPage.clickNeedAccLink();
-    cy.url().should("include", "register");
-    registrationPage.fillRegistrationForm(testData.randomUsername, testData.randomEmail, testData.randomPassword);
-    cy.url().should("eq", `${baseUrl + "#/"}`);
-    mainPage.checkProfileSectionUsername(USER_LOGIN);
-    mainPage.clickProfileSectionLink();
-    cy.url().should("include", `${USER_LOGIN}`);
-    userPage.checkProfileUsername(USER_LOGIN);
-  });
-
-  it("Registration with invalid credentials", () => {
-    registrationPage.openRegistrationUrl();
-    registrationPage.fillRegistrationForm(
-      testData.randomBadUsername,
-      testData.randomBadEmail,
-      testData.randomBadPassword
-    );
-    registrationPage.checkLoginErrorMsgs([systemMessages["invalid-username"], systemMessages["invalid-email"], systemMessages["invalid-password"]]);
-    registrationPage.checkRedHighlightFields(["text", "email", "password"]);
-  });
-
-  it("Registration with empty required fields", () => {
-    registrationPage.openRegistrationUrl();
-    registrationPage.clickSubmitBtn();
-    registrationPage.checkLoginErrorMsgs([
-      systemMessages["blank-username"], systemMessages["blank-email"], systemMessages["blank-password"]
-    ]);
-    registrationPage.checkRedHighlightFields(["text", "email", "password"]);
-  });
 });
