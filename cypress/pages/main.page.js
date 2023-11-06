@@ -2,7 +2,8 @@ const { Page } = require("./page");
 
 const loginLink = 'nav [ui-sref="app.login"]';
 const registrationLink = 'nav [ui-sref="app.register"]';
-const profileSectionLink = 'a[ui-sref="app.profile.main]';
+const profileSectionLink = 'a[ui-sref="app.profile.main"]';
+const settingsLink = 'a[ui-sref="app.settings"]';
 
 class MainPage extends Page {
   openMainUrl() {
@@ -23,6 +24,10 @@ class MainPage extends Page {
 
   clickProfileSectionLink() {
     this.clickElement(profileSectionLink);
+  }
+
+  clickSettingsLink() {
+    this.clickElement(settingsLink);
   }
 }
 

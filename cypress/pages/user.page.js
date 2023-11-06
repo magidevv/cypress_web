@@ -1,14 +1,15 @@
 const { Page } = require("./page");
 
 const profileUsername = '[ng-bind="::$ctrl.profile.username"]';
+const editProfileSettingsBtn = 'a[ui-sref="app.settings"][ng-show="$ctrl.isUser"]';
 
 class UserPage extends Page {
-  openUserUrl() {
-    this.openUrl("");
-  }
-
   checkProfileUsername(username) {
     this.getElement(profileUsername).should("eq", username);
+  }
+
+  clickEditProfileSettingsBtn() {
+    this.clickElement(editProfileSettingsBtn);
   }
 }
 
