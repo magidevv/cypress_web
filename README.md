@@ -51,8 +51,8 @@ Follow these steps to install the project from the GitHub repository and connect
    ```
 
 4. Set Environment Variables:
-- Create a copy of .env.example as .env.
-- Fill in the necessary environment variables required for the project.
+   - Create a copy of .env.example as .env.
+   - Fill in the necessary environment variables required for the project.
 
 ## Steps to Launch
 
