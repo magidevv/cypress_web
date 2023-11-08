@@ -8,6 +8,13 @@ const submitBtn = 'button[type="submit"]';
 const loginErrorMsgs = 'ul.error-messages li';
 
 class RegistrationPage extends Page {
+  static invalidUsername_error = "username is invalid";
+  static invalidEmail_error = "email is invalid";
+  static invalidPassword_error = "password is invalid";
+  static blankUsername_error = "username can't be blank";
+  static blankEmail_error = "email can't be blank";
+  static blankPassword_error = "password can't be blank";
+
   openRegistrationUrl() {
     this.openUrl("#/register");
   }
@@ -44,4 +51,4 @@ class RegistrationPage extends Page {
   }
 }
 
-module.exports = { RegistrationPage };
+export default RegistrationPage;

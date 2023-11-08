@@ -1,24 +1,27 @@
-const { MainPage } = require("../pages/main.page");
-const { LoginPage } = require("../pages/login.page");
-const { RegistrationPage } = require("../pages/registration.page");
-const { UserPage } = require("../pages/user.page");
-const testData = require("../fixtures/test-data.js");
-const systemMessages = require("../fixtures/system-messages.json");
+import MainPage from "../pages/main.page";
+import LoginPage from "../pages/login.page";
+import UserPage from "../pages/user.page";
+import RegistrationPage from "../pages/registration.page.js";
+import Helper from "../helper/helper.js";
+
+const validRandomUsername = Helper.generateRandomValidUsername();
+const validRandomEmail = Helper.generateRandomValidEmail();
+const validRandomPassword = Helper.generateRandomValidPassword();
+const invalidRandomUsername = Helper.generateRandomValidUsername();
+const invalidRandomEmail = Helper.generateRandomValidEmail();
+const invalidRandomPassword = Helper.generateRandomValidPassword();
+
+const mainPage = new MainPage();
+const loginPage = new LoginPage();
+const registrationPage = new RegistrationPage();
+const userPage = new UserPage();
+
+const baseUrl = Cypress.config("baseUrl");
+const validUsername = Cypress.env("USER_LOGIN");
 
 describe("Registration Form", () => {
-  const mainPage = new MainPage();
-  const loginPage = new LoginPage();
-  const registrationPage = new RegistrationPage();
-  const userPage = new UserPage();
-
-  const baseUrl = Cypress.config("baseUrl");
-  const USER_LOGIN = Cypress.env("USER_LOGIN");
-
-  beforeEach(() => {
-    mainPage.openMainUrl();
-  });
-
   it("Registration with valid credentials", () => {
+    mainPage.openMainUrl();
     mainPage.clickRegistrationLink();
     cy.url().should("include", "register");
     mainPage.clickLoginLink();
@@ -26,28 +29,28 @@ describe("Registration Form", () => {
     loginPage.clickNeedAccLink();
     cy.url().should("include", "register");
     registrationPage.fillRegistrationForm(
-      testData.randomUsername,
-      testData.randomEmail,
-      testData.randomPassword
+      validRandomUsername,
+      validRandomEmail,
+      validRandomPassword
     );
     cy.url().should("eq", `${baseUrl + "#/"}`);
-    mainPage.checkProfileSectionUsername(USER_LOGIN);
+    mainPage.checkProfileSectionUsername(validUsername);
     mainPage.clickProfileSectionLink();
-    cy.url().should("include", `${USER_LOGIN}`);
-    userPage.checkProfileUsername(USER_LOGIN);
+    cy.url().should("include", `${validUsername}`);
+    userPage.checkProfileUsername(validUsername);
   });
 
   it("Registration with invalid credentials", () => {
     registrationPage.openRegistrationUrl();
     registrationPage.fillRegistrationForm(
-      testData.randomBadUsername,
-      testData.randomBadEmail,
-      testData.randomBadPassword
+      invalidRandomUsername,
+      invalidRandomEmail,
+      invalidRandomPassword
     );
     registrationPage.checkLoginErrorMsgs([
-      systemMessages["invalid-username"],
-      systemMessages["invalid-email"],
-      systemMessages["invalid-password"],
+      RegistrationPage.invalidUsername_error,
+      RegistrationPage.invalidEmail_error,
+      RegistrationPage.invalidPassword_error
     ]);
     registrationPage.checkRedHighlightFields(["text", "email", "password"]);
   });
@@ -56,9 +59,9 @@ describe("Registration Form", () => {
     registrationPage.openRegistrationUrl();
     registrationPage.clickSubmitBtn();
     registrationPage.checkLoginErrorMsgs([
-      systemMessages["blank-username"],
-      systemMessages["blank-email"],
-      systemMessages["blank-password"],
+      RegistrationPage.blankUsername_error,
+      RegistrationPage.blankEmail_error,
+      RegistrationPage.blankPassword_error
     ]);
     registrationPage.checkRedHighlightFields(["text", "email", "password"]);
   });

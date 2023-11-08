@@ -31,4 +31,4 @@ class MainPage extends Page {
   }
 }
 
-module.exports = { MainPage };
+export default MainPage;

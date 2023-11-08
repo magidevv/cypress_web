@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-headless": "npx cypress run",
-    "test-headed": "npx cypress run --headed",
-    "test-login": "npx cypress run login.cy.js",
-    "test-registration": "npx cypress run registration.cy.js",
-    "test-profile-settings": "npx cypress run profile.settings.cy.js",
-    "report-create": "npx cypress run --record --key 593c71e3-af97-4520-86cb-304654bd9200"
+    "test:all": "npx cypress run",
+    "test:all:headed": "npx cypress run --headed",
+    "test:login": "npx cypress run login.cy.js",
+    "test:registration": "npx cypress run registration.cy.js",
+    "test:profile-settings": "npx cypress run profile.settings.cy.js",
+    "report:create": "npx cypress run --record --key $CYPRESS_RECORD_KEY"
   },
   "keywords": [],
   "author": "",

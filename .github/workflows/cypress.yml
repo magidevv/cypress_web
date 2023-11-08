@@ -10,6 +10,13 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
 
+    env:
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      ENV: ${{ secrets.ENV }}
+      USER_LOGIN: ${{ secrets.USER_LOGIN }}
+      USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+      USER_EMAIL: ${{ secrets.USER_EMAIL }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,5 +30,3 @@ jobs:
       - name: Run Cypress tests and report to Cypress Dashboard
         run: |
           npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

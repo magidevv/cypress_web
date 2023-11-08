@@ -13,4 +13,4 @@ class UserPage extends Page {
   }
 }
 
-module.exports = { UserPage };
+export default UserPage;
