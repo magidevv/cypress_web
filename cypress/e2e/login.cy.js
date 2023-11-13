@@ -4,8 +4,8 @@ import UserPage from "../pages/user.page";
 import RegistrationPage from "../pages/registration.page.js";
 import Helper from "../helper/helper.js";
 
-const invalidRandomEmail = Helper.generateRandomValidEmail();
-const invalidRandomPassword = Helper.generateRandomValidPassword();
+const invalidRandomEmail = Helper.generateRandomInvalidEmail();
+const invalidRandomPassword = Helper.generateRandomInvalidPassword();
 
 const baseUrl = Cypress.config("baseUrl");
 const validUsername = Cypress.env("USER_LOGIN");
