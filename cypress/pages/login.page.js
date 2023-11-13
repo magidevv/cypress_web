@@ -8,7 +8,7 @@ const loginErrorMsgs = 'ul.error-messages li';
 
 class LoginPage extends Page {
   static invalidCredentials_error = "email or password is invalid";
-  static blankEmail_error = "email can't be blan";
+  static blankEmail_error = "email can't be blank";
   static blankPassword_error = "password can't be blank";
 
   openLoginUrl() {
