@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:all": "npx cypress run",
-    "test:all:headed": "npx cypress run --headed",
-    "test:login": "npx cypress run login.cy.js",
-    "test:registration": "npx cypress run registration.cy.js",
-    "test:profile-settings": "npx cypress run profile.settings.cy.js",
+    "test:all": "npx cypress run --browser electron",
+    "test:all:headed": "npx cypress run --browser electron --headed",
+    "test:login": "npx cypress run login.cy.js --browser electron",
+    "test:registration": "npx cypress run registration.cy.js --browser electron",
+    "test:profile-settings": "npx cypress run profile.settings.cy.js --browser electron",
     "report:create": "npx cypress run --record --key $CYPRESS_RECORD_KEY",
     "report:open": "start cypress/reports/html/index.html"
   },
