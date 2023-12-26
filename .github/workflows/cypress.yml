@@ -29,7 +29,6 @@ jobs:
       - name: Run Cypress tests and report to Cypress Dashboard
         run: |
           npx cypress run --browser electron --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
-        continue-on-error: true
 
       - name: Upload Cypress Reports
         uses: actions/upload-artifact@v2
