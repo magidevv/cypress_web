@@ -60,32 +60,32 @@ This project provides several scripts to run Cypress tests:
 
 - **test:all**: Run Cypress tests in headless mode.
    ```bash
-   npx run test:all
+   npm run test:all
    ```
 
 - **test:all:headed**: Run Cypress tests in headed (GUI) mode.
    ```bash
-   npx run test:all:headed
+   npm run test:all:headed
    ```
 
 - **test:login**: Run login tests using Cypress.
    ```bash
-   npx run test:login
+   npm run test:login
    ```
 
 - **test:registration**: Run registration tests using Cypress.
    ```bash
-   npx run test:registration
+   npm run test:registration
    ```
 
 - **test:profile-settings**: Run profile settings tests using Cypress.
    ```bash
-   npx run test:profile-settings
+   npm run test:profile-settings
    ```
 
 - **report:create**: Run tests in Cypress and record the results using the provided Cypress key for Cypress Cloud.
    ```bash
-   npx run report:create
+   npm run report:create
    ```
 
 ## Steps to Create a Report (Using Cypress Cloud)
