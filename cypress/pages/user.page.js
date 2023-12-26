@@ -5,7 +5,7 @@ const editProfileSettingsBtn = 'a[ui-sref="app.settings"][ng-show="$ctrl.isUser"
 
 class UserPage extends Page {
   checkProfileUsername(username) {
-    this.getElement(profileUsername).should("eq", username);
+    this.checkElementText(profileUsername, username);
   }
 
   clickEditProfileSettingsBtn() {

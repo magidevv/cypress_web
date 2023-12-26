@@ -2,7 +2,8 @@ const { Page } = require("./page");
 
 const loginLink = 'nav [ui-sref="app.login"]';
 const registrationLink = 'nav [ui-sref="app.register"]';
-const profileSectionLink = 'a[ui-sref="app.profile.main"]';
+const profileSectionLink =
+  'a[ui-sref="app.profile.main({ username: $ctrl.currentUser.username })"]';
 const settingsLink = 'a[ui-sref="app.settings"]';
 
 class MainPage extends Page {
@@ -19,7 +20,7 @@ class MainPage extends Page {
   }
 
   checkProfileSectionUsername(username) {
-    this.getElement(profileSectionLink).should("eq", username);
+    this.checkElementText(profileSectionLink, username);
   }
 
   clickProfileSectionLink() {

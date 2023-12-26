@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Cypress tests and report to Cypress Dashboard
         run: |
-          npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }} || true
+          npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Upload Cypress Reports
         uses: actions/upload-artifact@v2
