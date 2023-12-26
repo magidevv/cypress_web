@@ -33,7 +33,7 @@ describe("Registration Form", () => {
       validRandomEmail,
       validRandomPassword
     );
-    cy.url().should("eq", `${baseUrl + "#/"}`);
+    cy.url().should("eq", `${baseUrl}`);
     mainPage.checkProfileSectionUsername(validUsername);
     mainPage.clickProfileSectionLink();
     cy.url().should("include", `${validUsername}`);
