@@ -12,7 +12,7 @@ class LoginPage extends Page {
   static blankPassword_error = "password can't be blank";
 
   openLoginUrl() {
-    this.openUrl("#/login");
+    this.openUrl("/login");
   }
 
   clickNeedAccLink() {

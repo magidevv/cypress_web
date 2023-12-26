@@ -16,7 +16,7 @@ class RegistrationPage extends Page {
   static blankPassword_error = "password can't be blank";
 
   openRegistrationUrl() {
-    this.openUrl("#/register");
+    this.openUrl("/register");
   }
 
   clickHaveAccLink() {
