@@ -27,7 +27,7 @@ describe("Login Form", () => {
     registrationPage.clickHaveAccLink();
     cy.url().should("include", "login");
     loginPage.fillLoginForm(validEmail, validPassword);
-    cy.url().should("eq", `${baseUrl + "#/"}`);
+    cy.url().should("eq", `${baseUrl}`);
     mainPage.checkProfileSectionUsername(validUsername);
     mainPage.clickProfileSectionLink();
     cy.url().should("include", `${validUsername}`);
