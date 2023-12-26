@@ -4,6 +4,14 @@ class Page {
     cy.visit(url || "/");
   }
 
+  includeUrl(url) {
+    cy.url().should("include", url);
+  }
+
+  equalUrl(url) {
+    cy.url().should("eq", url);
+  }
+
   getElement(element) {
     return cy.get(element);
   }

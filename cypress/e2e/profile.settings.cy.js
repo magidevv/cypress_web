@@ -22,10 +22,10 @@ describe("Login Form", () => {
 
   it("Updating the profile bio", () => {
     mainPage.clickSettingsLink();
-    cy.url().should("include", "settings");
+    settingsPage.includeUrl("settings");
     mainPage.clickProfileSectionLink();
-    cy.url().should("include", `${USER_LOGIN}`);
+    mainPage.includeUrl(`${USER_LOGIN}`);
     userPage.clickEditProfileSettingsBtn();
-    cy.url().should("include", "settings");
+    settingsPage.includeUrl("settings");
   });
 });

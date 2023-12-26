@@ -23,20 +23,20 @@ describe("Registration Form", () => {
   it("Registration with valid credentials", () => {
     mainPage.openMainUrl();
     mainPage.clickRegistrationLink();
-    cy.url().should("include", "register");
+    registrationPage.includeUrl("register");
     mainPage.clickLoginLink();
-    cy.url().should("include", "login");
+    mainPage.includeUrl("login");
     loginPage.clickNeedAccLink();
-    cy.url().should("include", "register");
+    registrationPage.includeUrl("register");
     registrationPage.fillRegistrationForm(
       validRandomUsername,
       validRandomEmail,
       validRandomPassword
     );
-    cy.url().should("eq", `${baseUrl}`);
+    mainPage.equalUrl(`${baseUrl}`);
     mainPage.checkProfileSectionUsername(validUsername);
     mainPage.clickProfileSectionLink();
-    cy.url().should("include", `${validUsername}`);
+    userPage.includeUrl(`${validUsername}`);
     userPage.checkProfileUsername(validUsername);
   });
 

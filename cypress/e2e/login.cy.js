@@ -1,7 +1,7 @@
 import MainPage from "../pages/main.page";
 import LoginPage from "../pages/login.page";
 import UserPage from "../pages/user.page";
-import RegistrationPage from "../pages/registration.page.js";
+import RegistrationPage from "../pages/registration.page";
 import Helper from "../helper/helper.js";
 
 const invalidRandomEmail = Helper.generateRandomInvalidEmail();
@@ -21,16 +21,16 @@ describe("Login Form", () => {
   it("Login with valid credentials", () => {
     mainPage.openMainUrl();
     mainPage.clickLoginLink();
-    cy.url().should("include", "login");
+    mainPage.includeUrl("login");
     mainPage.clickRegistrationLink();
-    cy.url().should("include", "register");
+    registrationPage.includeUrl("register");
     registrationPage.clickHaveAccLink();
-    cy.url().should("include", "login");
+    loginPage.includeUrl("login");
     loginPage.fillLoginForm(validEmail, validPassword);
-    cy.url().should("eq", `${baseUrl}`);
+    mainPage.equalUrl(`${baseUrl}`);
     mainPage.checkProfileSectionUsername(validUsername);
     mainPage.clickProfileSectionLink();
-    cy.url().should("include", `${validUsername}`);
+    userPage.includeUrl(`${validUsername}`);
     userPage.checkProfileUsername(validUsername);
   });
 
