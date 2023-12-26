@@ -9,7 +9,8 @@
     "test:login": "npx cypress run login.cy.js",
     "test:registration": "npx cypress run registration.cy.js",
     "test:profile-settings": "npx cypress run profile.settings.cy.js",
-    "report:create": "npx cypress run --record --key $CYPRESS_RECORD_KEY"
+    "report:create": "npx cypress run --record --key $CYPRESS_RECORD_KEY",
+    "report:open": "start cypress/reports/html/index.html"
   },
   "keywords": [],
   "author": "",
