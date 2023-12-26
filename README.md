@@ -102,3 +102,5 @@ To generate reports using Cypress Cloud, follow these steps:
    ```
 
 The report will be generated in Cypress Cloud, allowing you to view and analyze test results.
+
+The project also includes a GitHub Actions workflow that automatically generates and pushes Cypress HTML reports to the `report-page` branch. The reports are then deployed to GitHub Pages for easy access.
